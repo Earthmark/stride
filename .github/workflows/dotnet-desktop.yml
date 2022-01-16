@@ -75,16 +75,10 @@ jobs:
         fetch-depth: 0
 
     - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
+      run: dotnet restore build/Stride.sln
 
     - name: Build the application
-      run: msbuild $env:Solution_Name /t:Build /p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
+      run: build/compile.bat
 
     - name: Test the application
-      run: dotnet test $env:Solution_Name --no-build -c $env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
+      run: dotnet test build/Stride.sln --no-build

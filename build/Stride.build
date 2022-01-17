@@ -14,7 +14,7 @@ Example of use:
     <StrideSign Condition="'$(StrideSign)' == ''">true</StrideSign>
     <BuildProperties Condition="'$(StrideSign)' != ''">$(BuildProperties);StrideSign=$(StrideSign)</BuildProperties>
     <NuGetPath>$(MSBuildThisFileDirectory).nuget\NuGet.exe</NuGetPath>
-    <XunitRunnerConsoleVersion>2.4.1</XunitRunnerConsoleVersion>
+    <XunitRunnerConsoleVersion>2.4.2-pre.12</XunitRunnerConsoleVersion>
     <StrideStoreUrl Condition="'$(StrideStoreUrl)' == ''">https://api.nuget.org/v3/index.json</StrideStoreUrl>
     <AdvancedInstallerPath Condition="'$(AdvancedInstallerPath)' == '' And Exists('$(MSBuildProgramFiles32)\Caphyon\Advanced Installer 17.9\bin\x86\AdvancedInstaller.com')">$(MSBuildProgramFiles32)\Caphyon\Advanced Installer 17.9\bin\x86\AdvancedInstaller.com</AdvancedInstallerPath>
     <StrideBuildPrerequisitesInstaller Condition="'$(StrideBuildPrerequisitesInstaller)' == ''">true</StrideBuildPrerequisitesInstaller>
@@ -252,7 +252,6 @@ Example of use:
     </CreateItem>
     <!-- Restore NuGet packages -->
     <Message Importance="High" Text="Restoring NuGet packages"/>
-    <MSBuild Targets="Restore" Projects="$(MSBuildThisFileDirectory)Stride.sln" />
     <MSBuild Targets="Restore" Projects="$(MSBuildThisFileDirectory)Stride.Tests.%(StrideTestCategoriesItem.Identity).slnf" />
     <!-- Build -->
     <Message Importance="High" Text="Building unit tests"/>

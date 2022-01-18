@@ -10,8 +10,13 @@ jobs:
   build:
     runs-on: windows-2022
     steps:
+      
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.1
+    
+    - name: Build resources
+      run: '& "C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\resgen.exe" /useSourcePath /compile VSPackage.resx,VSPackage.resources Resources.resx,Stride.VisualStudio.Resources.resources'
+      working-directory: sources\tools\Stride.VisualStudio.Package
 
     #- name: Install .NET Core
     #  uses: actions/setup-dotnet@v1

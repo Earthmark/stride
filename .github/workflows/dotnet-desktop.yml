@@ -16,20 +16,13 @@ jobs:
     
     - name: Install .NET Core
       run: choco install dotnet-sdk
-    
-    #- name: Install .NET Core
-    #  uses: actions/setup-dotnet@v1
-        
+
     - name: Checkout
       uses: actions/checkout@v2
       
     - name: Restore the application
       run: dotnet restore Stride.sln
       working-directory: build
-
-    - name: Build resources
-      run: '& "C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\resgen.exe" /compile VSPackage.resx Resources.resx'
-      working-directory: sources\tools\Stride.VisualStudio.Package
 
     - name: Build the application
       run:  msbuild.exe /verbosity:d /p:Platform="Mixed Platforms" /p:StrideSkipUnitTests=false Stride.sln /p:DeployExtension=false

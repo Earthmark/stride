@@ -25,10 +25,6 @@ jobs:
       run: dotnet restore Stride.sln
       working-directory: build
 
-    - name: Build resources
-      run: '& "C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\resgen.exe" /useSourcePath /compile VSPackage.resx,obj\Debug\net472\VSPackage.resources Resources.resx,obj\Debug\net472\Stride.VisualStudio.Resources.resources'
-      working-directory: sources\tools\Stride.VisualStudio.Package
-
     - name: Build the application
       run:  msbuild.exe /verbosity:d /p:Platform="Mixed Platforms" /p:StrideSkipUnitTests=false Stride.sln /p:DeployExtension=false
       working-directory: build

@@ -25,7 +25,7 @@ jobs:
       working-directory: build
 
     - name: Build the application
-      run:  msbuild.exe /verbosity:d /p:Platform="Mixed Platforms" /p:StrideSkipUnitTests=false Stride.sln /p:DeployExtension=false
+      run:  msbuild.exe /p:Platform="Mixed Platforms" /p:StrideSkipUnitTests=false Stride.sln /p:DeployExtension=false
       working-directory: build
 
     - name: Test the application

@@ -130,9 +130,7 @@
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\VSPackage16.png">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Resource>
+    <None Include="Resources\VSPackage16.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\VSPackage.ico">

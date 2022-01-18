@@ -15,7 +15,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1.1
     
     - name: Build resources
-      run: '& "C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\resgen.exe" /useSourcePath /compile VSPackage.resx,VSPackage.resources Resources.resx,Stride.VisualStudio.Resources.resources'
+      run: '& "C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\resgen.exe" /useSourcePath /compile VSPackage.resx Resources.resx'
       working-directory: sources\tools\Stride.VisualStudio.Package
 
     #- name: Install .NET Core
